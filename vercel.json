@@ -7,14 +7,18 @@
     }
   },
   "routes": [
-    {
-      "src": "/(.*\\.php)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
-    } 
+      {
+        "src": "/api/(.*)",
+        "dest": "/api/index.php"
+      },
+      {
+        "src": "/(.*\\.php)",
+        "dest": "/api/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/api/index.php"
+      }
   ],
   "env": {
     "APP_ENV": "production",
