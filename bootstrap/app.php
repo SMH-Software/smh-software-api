@@ -12,7 +12,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->global([
+            \App\Http\Middleware\HandleCors::class,
+        ]);
+
+        $middleware->group('api', [
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
