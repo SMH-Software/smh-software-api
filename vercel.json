@@ -2,10 +2,10 @@
   "version": 2,
   "framework": null,
  "functions": {
-    "laravel.php": { "runtime": "vercel-php@0.7.2" }
+    "api/laravel.php": { "runtime": "vercel-php@0.7.2" }
   },
   "routes": [
-    { "src": "/(.*)", "dest": "/laravel.php" }
+    { "src": "/(.*)", "dest": "/api/laravel.php" }
   ],
   "env": {
     "APP_ENV": "production",
