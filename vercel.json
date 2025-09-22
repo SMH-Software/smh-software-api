@@ -1,16 +1,11 @@
 {
   "version": 2,
   "framework": null,
-  "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.7.3"
-    }
+ "functions": {
+    "laravel.php": { "runtime": "vercel-php@0.7.2" }
   },
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
-    } 
+    { "src": "/(.*)", "dest": "/laravel.php" }
   ],
   "env": {
     "APP_ENV": "production",
