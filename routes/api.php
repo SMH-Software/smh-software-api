@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 })->middleware('auth:sanctum'); */
 
+Route::options('/{any}', function () {
+    return response()->json([], 200);
+})->where('any', '.*');
+
 Route::get('/', [AccountController::class, 'index']);
 Route::post('/', [AccountController::class, 'store']);
 Route::get('/{id}', [AccountController::class, 'show']);
