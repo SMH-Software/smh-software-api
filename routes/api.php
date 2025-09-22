@@ -12,9 +12,15 @@ Route::options('/{any}', function () {
     return response()->json([], 200);
 })->where('any', '.*');
 
-Route::get('/', [AccountController::class, 'index']);
-Route::post('/', [AccountController::class, 'store']);
-Route::get('/{id}', [AccountController::class, 'show']);
-Route::patch('/{id}', [AccountController::class, 'update']);
-Route::delete('/{id}', [AccountController::class, 'delete']);
+Route::get('/', function(){
+    return 'SMH-SOFTWARE API';
+});
+
+Route::prefix('accounts')->name('account')->group(function (){
+    Route::get('/', [AccountController::class, 'index'])->name('index');
+    Route::post('/', [AccountController::class, 'store']);
+    Route::get('/{id}', [AccountController::class, 'show']);
+    Route::patch('/{id}', [AccountController::class, 'update']);
+    Route::delete('/{id}', [AccountController::class, 'delete']);
+});
 
